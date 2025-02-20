@@ -1,7 +1,7 @@
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from numbering import print_sheet_numbering
-from R_S.Components.models.read_format import *
+from models.read_format import *
 from reportlab.lib.units import mm, inch
 
 # Параметры страницы

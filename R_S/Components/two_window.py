@@ -5,7 +5,7 @@ from tkPDFViewer import tkPDFViewer as pdf
 from tk_pdf_сollect_2 import create_pdf_with_numbering
 from PIL import Image, ImageTk
 
-from read_format import *
+from models.read_format import *
 
 from .tb_filebox import *
 # from notebook_pdf import *
