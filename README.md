@@ -9,21 +9,21 @@
 
 Все компоненты определены в папке Components 
 
-. root_Window.py - основное окно в котором размещаются остальные компоненты (Two_Windows и Toolbar)
-Под ним создаётся родительское окно и положение дочернего окна (root) зависит от parent (перемещается вместе с ним)
-. . hide_custom_menu() - обрабатывает закрытие выпадающего меню 
-. app.py создаются оба окна (parent и root)
+    . root_Window.py - основное окно в котором размещаются остальные компоненты (Two_Windows и Toolbar)
+    Под ним создаётся родительское окно и положение дочернего окна (root) зависит от parent (перемещается вместе с ним)
+    . . hide_custom_menu() - обрабатывает закрытие выпадающего меню 
+    . app.py создаются оба окна (parent и root)
 
-. two_window.py - разделяет окно на два используя paned_window 
-и добавляет в левой части поля для ввода, в правой части окно для вывода PDF 
-/* self.paned_window.add(left_bar)
-    self.paned_window.add(self.pdf_frame)
-*/
+    . two_window.py - разделяет окно на два используя paned_window 
+    и добавляет в левой части поля для ввода, в правой части окно для вывода PDF 
+    /* self.paned_window.add(left_bar)
+        self.paned_window.add(self.pdf_frame)
+    */
 
-. toolbar.py - toolbar, заменяющий стандартную оконную рамку (свернуть, полный экран, закрыть) 
-..do_move() - служит для перемещения окна за toolbar
+    . toolbar.py - toolbar, заменяющий стандартную оконную рамку (свернуть, полный экран, закрыть) 
+    ..do_move() - служит для перемещения окна за toolbar
 
-. tb_filebox.py - выпадающее меню по кнопке Файл
+    . tb_filebox.py - выпадающее меню по кнопке Файл
 
 . PDFViewer служит для создания виджета tkPDFViewer 
 Сам виджет создаётся в методе open_pdf(file_name) 
@@ -38,6 +38,9 @@ if self.current_view is not None:
 /* self.v1.img_object_li.clear() */    -  удаляет собстввенный frame
 
 
+В models определены:
+    .read_format 
+    В нём класс Format для формата листа
 
 Активные поля для ввода:
 . Доля
