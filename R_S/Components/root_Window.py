@@ -6,8 +6,8 @@ from tk_pdf_сollect_2 import create_pdf_with_numbering
 import os 
 import re
 from PIL import Image, ImageTk
+from .parser_format import parse_format
 from tkinter.messagebox import showerror, showwarning, showinfo
-
 
 from .two_window import *
 from .toolbar import *
@@ -83,21 +83,51 @@ class Root_Window:
     def collect_data(self):
         
         forma = self.obj_two_window.format_entry.get()
+        forma = parse_format(forma)
         try:   
             format_value = forma
-            share_value = self.obj_two_window.share_entry.get()
-            pages_value = self.obj_two_window.pages_entry.get()
-            first_entry_value = int(self.obj_two_window.first_entry.get())
+            share_value = self.obj_two_window.share_entry.get().strip()
+            pages_value1 = self.obj_two_window.pages_entry.get().strip()
+            
+            final_share_value = 0
+            match int(share_value):
+                case 2:
+                    final_share_value = 1
+                case 4: 
+                    final_share_value = 2
+                case 8:
+                    final_share_value = 3
+                case 16:
+                    final_share_value = 4            
+            try:
+                first_entry_value = int(self.obj_two_window.first_entry.get())
+            except ValueError:
+            
+                self.root.attributes("-topmost", False)
+
+                result = showwarning(title="Предупреждение", message="Введите первую страницу")
+                if result: self.root.attributes("-topmost", True)
+                
+            try:
+                pages_value = int(pages_value1)
+            except:
+                self.root.attributes("-topmost", False)
+
+                result = showwarning(title="Предупреждение", message="Введите количество страниц")
+                if result: self.root.attributes("-topmost", True)
+            
+            
             Format.read_format(format_value)
             
-            print(f"Формат листа: {format_value}, Доля: {share_value}, Количество страниц: {pages_value}")
+            print(f"Формат листа: {format_value}, Доля: {final_share_value}, Количество страниц: {pages_value}")
             
             file_name = f"{os.getcwd()}\\Test_Spoosks.pdf"
 
-            if int(share_value) > 4:
+            if int(final_share_value) > 4:
                 raise Exception("Доля должна быть меньше 5")
             
-            create_pdf_with_numbering(file_name, int(pages_value), int(share_value), first_entry_value)
+            number_public= self.obj_two_window.number_public_cont.get()
+            create_pdf_with_numbering(file_name, int(pages_value), int(final_share_value), first_entry_value,number_public)
 
             
             self.pdf_viewer.open_pdf(file_name)

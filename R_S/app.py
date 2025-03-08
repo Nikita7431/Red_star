@@ -55,9 +55,17 @@ style.configure("Notebook.TNotebook", background = "#181818")
 
 style.configure("Main.TFrame", background="#181818",relief="sunken",borderwidth=1,highlightbackground="#cccccc")
 style.configure("Main.TLabel", background="#181818", font=("Segoe UI", SIZE_TEXT), foreground ="#cccccc" )
-style.configure("Main.TEntry", font=("Segoe UI", SIZE_TEXT) ,foreground ="#cccccc", background="transparent" , fieldbackground="#333333" )
+style.configure("Main.TEntry", font=("Segoe UI", SIZE_TEXT) ,foreground ="#181818", background="#d9d9d9" , fieldbackground="#d9d9d9" )
 style.configure("Main.TButton", font=("Segoe UI", SIZE_TEXT),relief='flat',padding=-3)
-
+# style.configure("Main.TCombobox", font=("Segoe UI", 12), foreground="#cccccc", background="transparent", fieldbackground="#333333")
+style.configure("Main.TCombobox",
+                fieldbackground="#d9d9d9",  # Цвет фона выпадающего списка
+                background="#d9d9d9",  # Цвет фона поля
+                foreground="#181818",  # Цвет шрифта
+                selectbackground="#d9d9d9",  # Цвет фона при выборе
+                selectforeground="#181818",  # Цвет шрифта при выборе
+                font=("Segoe UI", 12)
+                )
 
 parent_frame = ttk.Frame(parent, style="Parent.TFrame")
 parent_frame.pack(side="bottom", fill="both", expand=True)

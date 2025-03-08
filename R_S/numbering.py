@@ -65,7 +65,7 @@ def print_sheet_numbering(all_pages=32, part=3, first_number=1):
     book_pages = pow(2, part)
     
     if book_pages < 4:
-        print("Формат слишком мал ")
+        print("Страниц слигком мало")
         raise ValueError("Формат слишком мал ")
 
     book_drops = book_pages // 2

@@ -1,0 +1,40 @@
+{
+    "paper_sizes": [
+      {
+        "format": "A0",
+        "width_mm": 841,
+        "height_mm": 1189
+      },
+      {
+        "format": "A1",
+        "width_mm": 594,
+        "height_mm": 841
+      },
+      {
+        "format": "A2",
+        "width_mm": 420,
+        "height_mm": 594
+      },
+      {
+        "format": "A3",
+        "width_mm": 297,
+        "height_mm": 420
+      },
+      {
+        "format": "A4",
+        "width_mm": 210,
+        "height_mm": 297
+      },
+      {
+        "format": "A5",
+        "width_mm": 148,
+        "height_mm": 210,
+        "quantity": 12
+      },
+      {
+        "format": "A6",
+        "width_mm": 105,
+        "height_mm": 148
+      }
+    ]
+  }
